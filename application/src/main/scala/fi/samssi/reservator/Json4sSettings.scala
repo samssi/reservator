@@ -1,4 +1,4 @@
-package fi.samssi.notesongo
+package fi.samssi.reservator
 
 import org.json4s.DefaultFormats
 

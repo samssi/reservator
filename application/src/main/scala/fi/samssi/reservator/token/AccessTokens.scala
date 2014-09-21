@@ -1,4 +1,4 @@
-package fi.samssi.notesongo.token
+package fi.samssi.reservator.token
 
 import scala.collection.mutable.Map
 import scala.util.Random
@@ -6,8 +6,10 @@ import scala.util.Random
 object AccessTokens {
   val tokens = Map[String, String]()
 
-  def createToken(username: String) {
-    putToken(username, TokenGenerator.generateNew())
+  def createToken(username: String) = {
+    val token = TokenGenerator.generateNew();
+    putToken(username, token)
+    token
   }
 
   def putToken(username: String, token: String) = {

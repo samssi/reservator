@@ -1,4 +1,4 @@
-package fi.samssi.notesongo.di
+package fi.samssi.reservator.di
 
 import com.google.inject.AbstractModule
 

@@ -1,4 +1,4 @@
-package fi.samssi.notesongo
+package fi.samssi.reservator
 
 object PropertiesUtil {
   def getMongoUri: String = {

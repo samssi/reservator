@@ -1,4 +1,4 @@
-package fi.samssi.notesongo.service
+package fi.samssi.reservator.service
 
 package samssi.oshopper.repository
 
@@ -9,7 +9,7 @@ import org.bson.types.ObjectId
 import org.json4s.native.JsonMethods.{parse => json4sParse}
 import org.json4s.native.Serialization._
 import com.mongodb.util.JSON.parse
-import fi.samssi.notesongo.{Json4sSettings, PropertiesUtil}
+import fi.samssi.reservator.{Json4sSettings, PropertiesUtil}
 
 trait CentralRepository extends Json4sSettings {
   lazy val mongoUri = PropertiesUtil.getMongoUri
