@@ -37,7 +37,9 @@ object MasterBuild extends Build {
           "org.json4s"   %% "json4s-jackson" % "3.2.5",
           "com.google.inject" % "guice" % "3.0",
           "com.google.inject.extensions" % "guice-servlet" % "3.0",
-          "org.mongodb" %% "casbah" % "2.5.0"
+          "org.mongodb" %% "casbah" % "2.5.0",
+          "com.sun.mail" % "javax.mail" % "1.5.2",
+          "javax.mail" % "javax.mail-api" % "1.5.2"
         )
       )
     )
