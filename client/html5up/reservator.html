@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Directive by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+				<span class="logo icon fa-paper-plane-o"></span>
+				<h1>Tervetuloa {user.name}</h1>
+				<p>Voit nyt tarkastella ja tehdä mökkivarauksia Hauholle.</p>
+				<br />
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+				<div class="box container">
+					Kalenteri tähän
+				</div>
+				
+<div class="box container">
+					<header>
+						<h2>Palautetta mökin käytöstä</h2>
+					</header>
+					<section>
+						<header>
+							<h3>{comment.user}</h3>
+							<p>Päivänä: {comment.date} </p>
+						</header>
+						<p>Käytiin viikonloppuna. Mökki oli hyvässä kunnossa.</p>
+					</section>
+					</div>
+				
+			</div>
+			
+			
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container small">
+				<h3>Jätä kommentti</h3>
+				<form method="post" action="#">
+						<div class="row">
+							<div class="12u">
+								<textarea name="message" placeholder="Message" rows="6"></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="6u">
+								<ul class="actions">
+									&nbsp;
+								</ul>
+							</div>
+							<div class="6u">
+								<ul class="actions">
+									Kommentin jätti: {user.name}
+								</ul>
+							</div>
+						</div>
+						
+					<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+						</div>
+						
+						
+						
+					</form>
+					
+					<ul class="copyright">
+						<li>Sivustopohja HTML5 UP</li><li>Katso: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
+
+	</body>
+</html>
