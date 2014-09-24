@@ -10,6 +10,6 @@ login.config(function(RestangularProvider) {
 function loginController($scope, Restangular) {
     $scope.login = function() {
         console.log($scope.user)
-        //Restangular.one('note').customPUT($scope.note, '');
+        Restangular.one('reservator/v1/user/login').customPUT($scope.user, '');
     }
 }
