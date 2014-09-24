@@ -62,19 +62,19 @@
 				</div>
 				
 				
-				<footer class="major container small">
+				<footer class="major container small" ng-controller="emailPasswordController">
 					<h3>Unohtuiko salasana</h3>
 					<p>Toimita uusi salasana annettuun osoitteeseen</p>
 					<form method="post" action="#">
 						<div class="row">
 							<div class="12u">
-								<input type="text" name="name" placeholder="Sähköposti" />
+								<input type="text" name="name" ng-model="request.email" placeholder="Sähköposti" />
 							</div>
 						</div>
 						<div class="row">
 							<div class="12u">
 								<ul class="actions">
-									<li><input type="submit" value="Lähetä" /></li>
+									<li><input type="button" value="Lähetä" ng-click="requestPassword()" /></li>
 								</ul>
 							</div>
 						</div>

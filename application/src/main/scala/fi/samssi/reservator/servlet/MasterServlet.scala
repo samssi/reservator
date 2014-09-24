@@ -5,7 +5,7 @@ import org.scalatra.json.NativeJsonSupport
 import org.json4s.DefaultFormats
 import fi.samssi.reservator.token.AccessTokens
 
-trait MasterServlet extends ScalatraServlet with NativeJsonSupport with CorsSupport {
+trait MasterServlet extends ScalatraServlet with NativeJsonSupport {
   implicit override val jsonFormats = DefaultFormats
 
   def verifyToken(username: String, token: String) {
