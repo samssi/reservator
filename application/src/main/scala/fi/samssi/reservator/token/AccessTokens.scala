@@ -7,7 +7,7 @@ object AccessTokens {
   val tokens = Map[String, String]()
 
   def createToken(username: String) = {
-    val token = TokenGenerator.generateNew();
+    val token = TokenGenerator.generateNew()
     putToken(username, token)
     token
   }

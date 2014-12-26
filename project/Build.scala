@@ -39,7 +39,9 @@ object MasterBuild extends Build {
           "com.google.inject.extensions" % "guice-servlet" % "3.0",
           "org.mongodb" %% "casbah" % "2.5.0",
           "com.sun.mail" % "javax.mail" % "1.5.2",
-          "javax.mail" % "javax.mail-api" % "1.5.2"
+          "javax.mail" % "javax.mail-api" % "1.5.2",
+          "org.apache.commons" % "commons-lang3" % "3.3.2",
+          "commons-codec" % "commons-codec" % "1.10"
         )
       )
     )
