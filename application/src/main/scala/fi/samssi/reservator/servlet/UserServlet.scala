@@ -4,7 +4,7 @@ import org.scalatra.{CorsSupport, Unauthorized, Ok}
 import com.google.inject.Inject
 import fi.samssi.reservator.service.{EmailService, UserService}
 import fi.samssi.reservator.domain.{PasswordRequest, User, Result}
-import fi.samssi.reservator.token.AccessTokens
+import fi.samssi.reservator.token.{CryptoUtil, AccessTokens}
 import fi.samssi.reservator.Logging
 
 class UserServlet @Inject()(userRepository: UserService, emailService: EmailService) extends MasterServlet with Logging {
@@ -18,13 +18,14 @@ class UserServlet @Inject()(userRepository: UserService, emailService: EmailServ
 
   }
 
-  post("/login/create") {
+  /*post("/login/create") {
     val input = parsedBody.extract[User]
     //user
-  }
+  }*/
 
   private def checkPassword(input: User, expected: User) {
-    if (input.password.equals(expected)) {
+    val hashedAndSaltedPassword = CryptoUtil.hashPassword(input.password, expected.salt.get)
+    if (hashedAndSaltedPassword.equals(expected.password)) {
       logger.info(s"User ${input.username} logged in.")
       Ok(AccessTokens.createToken(input.username))
     }

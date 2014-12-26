@@ -1,6 +1,5 @@
 package fi.samssi.reservator.token
 
-import java.lang.String
 import scala.Predef.String
 import java.security.{SecureRandom, MessageDigest}
 import fi.samssi.reservator.domain.User
@@ -11,7 +10,7 @@ object CryptoUtil {
     val username = user.username
     val salt = generateSalt()
     val hashedPassword = hashPassword(user.password, salt)
-    new User(username, hashedPassword, salt)
+    new User(username, hashedPassword, Some(salt))
   }
 
   def hashPassword(password: String, salt: String) = {

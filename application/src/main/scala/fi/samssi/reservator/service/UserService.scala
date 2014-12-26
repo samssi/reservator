@@ -33,7 +33,7 @@ class UserService extends CentralRepository with Logging {
 
 object UserCreator {
   def main(args: Array[String]) {
-    new UserService().createUser(new User("samssi", "foo", ""))
+    new UserService().createUser(new User("samssi", "foo", None))
   }
 }
 
