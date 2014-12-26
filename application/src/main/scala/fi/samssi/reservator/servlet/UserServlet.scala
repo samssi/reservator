@@ -3,7 +3,7 @@ package fi.samssi.reservator.servlet
 import org.scalatra.{CorsSupport, Unauthorized, Ok}
 import com.google.inject.Inject
 import fi.samssi.reservator.service.{EmailService, UserService}
-import fi.samssi.reservator.domain.{PasswordRequest, User, Result}
+import fi.samssi.reservator.domain.{AuthorizationToken, PasswordRequest, User, Result}
 import fi.samssi.reservator.token.{CryptoUtil, AccessTokens}
 import fi.samssi.reservator.Logging
 
@@ -15,19 +15,14 @@ class UserServlet @Inject()(userRepository: UserService, emailService: EmailServ
       case Some(user) => checkPassword(input, user)
       case None => faultyLogin()
     }
-
   }
 
-  /*post("/login/create") {
-    val input = parsedBody.extract[User]
-    //user
-  }*/
-
-  private def checkPassword(input: User, expected: User) {
+  private def checkPassword(input: User, expected: User) = {
     val hashedAndSaltedPassword = CryptoUtil.hashPassword(input.password, expected.salt.get)
     if (hashedAndSaltedPassword.equals(expected.password)) {
       logger.info(s"User ${input.username} logged in.")
-      Ok(AccessTokens.createToken(input.username))
+      val token = AccessTokens.createToken(input.username)
+      Ok(AuthorizationToken(token))
     }
     else {
       faultyLogin()

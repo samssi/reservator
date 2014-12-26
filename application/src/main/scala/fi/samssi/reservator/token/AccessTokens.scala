@@ -7,7 +7,7 @@ object AccessTokens {
   val tokens = Map[String, String]()
 
   def createToken(username: String) = {
-    val token = TokenGenerator.generateNew()
+    val token = CryptoUtil.generateSalt()
     putToken(username, token)
     token
   }
@@ -24,13 +24,5 @@ object AccessTokens {
       }
       case None => false
     }
-  }
-}
-
-object TokenGenerator {
-  def generateNew() = {
-    val chars = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
-    val token = Seq.fill(50)(chars(Random.nextInt(chars.length))).mkString("")
-    token
   }
 }

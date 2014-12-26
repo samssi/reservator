@@ -9,7 +9,10 @@ login.config(function(RestangularProvider) {
 
 function loginController($scope, Restangular) {
     $scope.login = function() {
-        Restangular.one('reservator/v1/user/login').customPOST($scope.user, '');
+        Restangular.one('reservator/v1/user/login').customPOST('user', $scope.user).then(function(token) {
+            console.log('foo');
+            console.log(token)
+        });
     }
 }
 
