@@ -7,11 +7,11 @@ login.config(function(RestangularProvider) {
 )
 
 
-function loginController($scope, Restangular) {
+function loginController($scope, Restangular, $window) {
     $scope.login = function() {
-        Restangular.one('reservator/v1/user/login').customPOST('user', $scope.user).then(function(token) {
-            console.log('foo');
-            console.log(token)
+        Restangular.one('reservator/v1/user/login').customPOST($scope.user, '').then(function(data) {
+            console.log(data.token);
+            $window.location.href = 'http://localhost:8080/html/reservator.html';
         });
     }
 }

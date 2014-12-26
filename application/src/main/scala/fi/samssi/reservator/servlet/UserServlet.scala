@@ -1,6 +1,6 @@
 package fi.samssi.reservator.servlet
 
-import org.scalatra.{CorsSupport, Unauthorized, Ok}
+import org.scalatra.{Cookie, CorsSupport, Unauthorized, Ok}
 import com.google.inject.Inject
 import fi.samssi.reservator.service.{EmailService, UserService}
 import fi.samssi.reservator.domain.{AuthorizationToken, PasswordRequest, User, Result}
