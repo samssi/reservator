@@ -17,6 +17,9 @@
     <script src="lib/fullcalendar/moment.min.js"></script>
     <script src="lib/fullcalendar/fullcalendar.min.js"></script>
     <script src="js/calendar.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-cookies.js"></script>
+    <script src="js/reservator.js"></script>
     <link href="css/fullcalendar.css" rel="stylesheet" />
     <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
     <link href="css/calendar.css" rel="stylesheet"/>
@@ -28,7 +31,7 @@
 
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
-<body>
+<body ng-app="reservator">
 
 <!-- Header -->
 <div id="header">
@@ -40,7 +43,7 @@
 
 <!-- Main -->
 <div id="main">
-    <div class="box container">
+    <div class="box container" ng-controller="reservationsController">
         <div id='calendar'></div>
     </div>
 

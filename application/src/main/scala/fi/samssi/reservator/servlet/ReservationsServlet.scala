@@ -8,6 +8,7 @@ class ReservationsServlet @Inject()(reservationsRepository: ReservationsReposito
   // TODO: Use cookie
   get("/:username/:token") {
     verifyToken(params("username"), params("token"))
-    Ok(reservationsRepository.getReservations())
+    val reservations = reservationsRepository.getReservations()
+    Ok(reservations)
   }
 }
