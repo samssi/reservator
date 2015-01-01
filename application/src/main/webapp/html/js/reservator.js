@@ -13,3 +13,16 @@ reservator.controller('reservationsController', ['$scope', '$cookieStore', '$htt
 reservator.controller('userController', ['$scope', '$cookieStore', function($scope, $cookieStore) {
     $scope.username = $cookieStore.get('username');
 }]);
+
+reservator.controller('logoutController', ['$scope', '$http', '$cookieStore', '$window', function($scope, $http, $cookieStore, $window) {
+    var username = $cookieStore.get('username');
+    var token = $cookieStore.get('authorization-token');
+
+    $scope.logout = function() {
+        $http.delete('http://localhost:8080/reservator/v1/user/logout/' + username + "/" + token).success(function() {
+            $cookieStore.remove('authorization-token');
+            $cookieStore.remove('username');
+            $window.location.replace('http://localhost:8080/html/index.html');
+        });
+    }
+}]);

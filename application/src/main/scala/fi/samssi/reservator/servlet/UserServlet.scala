@@ -17,6 +17,13 @@ class UserServlet @Inject()(userRepository: UserService, emailService: EmailServ
     }
   }
 
+  delete("/logout/:username/:token") {
+    val username = params("username")
+    verifyToken(username, params("token"))
+    logger.info(s"User $username logged out.")
+    AccessTokens.revokeToken(username)
+  }
+
   private def checkPassword(input: User, expected: User) = {
     val hashedAndSaltedPassword = CryptoUtil.hashPassword(input.password, expected.salt.get)
     if (hashedAndSaltedPassword.equals(expected.password)) {

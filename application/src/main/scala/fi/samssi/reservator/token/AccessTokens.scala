@@ -12,6 +12,10 @@ object AccessTokens {
     token
   }
 
+  def revokeToken(username: String) = {
+    tokens.remove(username);
+  }
+
   def putToken(username: String, token: String) = {
     tokens += (username -> token)
   }
