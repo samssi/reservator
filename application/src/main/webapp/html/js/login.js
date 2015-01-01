@@ -1,23 +1,14 @@
-var login = angular.module('login', ['restangular']);
+var login = angular.module('login', ['ngCookies']);
 
-login.config(function(RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://localhost:8080');
-        RestangularProvider.setOnElemRestangularized(false);
-    }
-)
-
-
-function loginController($scope, Restangular, $window) {
-    $scope.login = function() {
-        Restangular.one('reservator/v1/user/login').customPOST($scope.user, '').then(function(data) {
+login.controller('loginController', ['$scope', '$cookieStore', '$http', function($scope, $cookieStore, $http) {
+    $scope.login = function () {
+        $http.post('http://localhost:8080/reservator/v1/user/login', $scope.user).success(function(data) {
             console.log(data.token);
-            $window.location.href = 'http://localhost:8080/html/reservator.html';
+            $cookieStore.put('authorization-token', data.token);
         });
     }
-}
+}]);
 
-function emailPasswordController ($scope, Restangular) {
-    $scope.requestPassword = function() {
-        Restangular.one('reservator/v1/user/password/request').customPOST($scope.request, '');
-    }
-}
+login.controller('emailPasswordController', [function() {
+
+}]);
