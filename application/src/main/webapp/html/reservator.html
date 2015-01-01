@@ -31,12 +31,12 @@
 
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
-<body ng-app="reservator">
+<body ng-app="reservator" ng-controller="userController">
 
 <!-- Header -->
 <div id="header">
     <span class="logo icon fa-paper-plane-o"></span>
-    <h1>Tervetuloa {user.name}</h1>
+    <h1>Tervetuloa {{username}}</h1>
     <p>Voit nyt tarkastella ja tehdä mökkivarauksia Hauholle.</p>
     <br />
 </div>
@@ -90,14 +90,19 @@
             <div class="row">
                 <div class="12u">
                     <ul class="actions">
-                        <li><input type="submit" value="Send Message" /></li>
+                        <li><input type="button" value="Send Message" /></li>
                     </ul>
                 </div>
             </div>
-
-
-
         </form>
+
+        <div class="row" ng-controller="logoutController">
+            <div class="12u">
+                <ul class="actions">
+                    <li><input type="button" value="Kirjaudu ulos" ng-click="logout()"/></li>
+                </ul>
+            </div>
+        </div>
 
         <ul class="copyright">
             <li>Sivustopohja HTML5 UP</li><li>Katso: <a href="http://html5up.net">HTML5 UP</a></li>
